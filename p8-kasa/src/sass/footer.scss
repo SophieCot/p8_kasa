@@ -1,0 +1,44 @@
+
+.footer {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer .logo {
+    width: 120px; /* Ajustez la taille du logo selon votre préférence */
+    margin-bottom: 20px; /* Espace entre le logo et le texte */
+  }
+  
+  footer nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  footer nav ul li {
+    margin: 0 10px;
+    font-size: 16px;
+  }
+  
+  footer nav ul li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  footer nav ul li a.underline {
+    text-decoration: underline;
+  }
+  
+  footer nav ul li a:hover {
+    color: #ff5a5f; /* Couleur au survol */
+  }
+  

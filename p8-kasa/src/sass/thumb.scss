@@ -1,0 +1,28 @@
+.thumb {
+    border: solid 2 px red;
+    cursor: pointer;
+    position: relative;
+    flex: 1 1 calc(33.333% - 20px);
+    img {
+       width: 325px;
+       height: 325px;
+       object-fit: cover;   
+       border-radius: 10px;
+    }
+    h3 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: white;
+        font-size: 1.2 rem;
+        background-color: rgba(0,0,0,0.5);
+        margin: 0;
+        height: 20px;
+        width:325px;
+        border-radius: 10px;
+        &:hover {
+            background-color:  rgba(0,0,0,0.7);
+        }
+    }
+
+}
