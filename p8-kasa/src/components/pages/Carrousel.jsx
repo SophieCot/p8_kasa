@@ -18,7 +18,7 @@ const Carrousel = ({ images }) => {
                 alt={`Image ${currentIndex + 1}`}
                 style={{
                     width: '100%',
-                    height: 'auto',
+                    height: '325px',
                     borderRadius: '8px',
                     objectFit: 'cover',
                     transition: 'opacity 0.5s ease',
@@ -33,7 +33,7 @@ const Carrousel = ({ images }) => {
                     top: '50%',
                     left: '10px',
                     transform: 'translateY(-50%)',
-                    background: 'rgba(0, 0, 0, 0.5)',
+                    background: 'none',
                     color: 'white',
                     border: 'none',
                     borderRadius: '50%',
@@ -52,7 +52,7 @@ const Carrousel = ({ images }) => {
                     top: '50%',
                     right: '10px',
                     transform: 'translateY(-50%)',
-                    background: 'rgba(0, 0, 0, 0.5)',
+                    background: 'none',
                     color: 'white',
                     border: 'none',
                     borderRadius: '50%',

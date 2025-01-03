@@ -1,0 +1,39 @@
+$error-bg-color: #f8f9fa;
+$error-text-color: #ff6f61;
+$error-code-color: #ff6f61;
+$button-bg-color: #007bff;
+
+
+.error-container {
+    text-align: center;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $error-text-color;
+}
+
+.error-code {
+    font-size: 15rem;
+    font-weight: bold;
+    color: $error-code-color;
+    margin: 0;
+}
+
+.error-message {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.back-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: black;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+}
