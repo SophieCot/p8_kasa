@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAEI,SAFK,CAEL,GAAG,CAAA;EACA,KAAK,EAAE,MAAM;EACZ,MAAM,EAAC,KAAK;EACZ,UAAU,EAAE,KAAK;EACjB,aAAa,EAAE,IAAI;CAGtB",
+    "sources": [
+        "Style-pages-locations.scss"
+    ],
+    "names": [],
+    "file": "Style-pages-locations.css"
+}

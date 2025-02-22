@@ -13,7 +13,7 @@ const Collapse = ({ title, children }) => {
   };
 
   return (
-    <div style={{ marginBottom: "10px", border: "1px solid #ddd", borderRadius: "5px", padding: "10px", backgroundColor :"#FF6060", color :"white" }}>
+    <div style={{ marginBlock: "30px", border: "1px solid #ddd", borderRadius: "5px", backgroundColor :"#FF6060", color :"white" }}>
       <div 
         onClick={toggleCollapse} 
         style={{ cursor: "pointer", fontWeight: "bold", display: "flex", justifyContent: "space-between" }}
@@ -28,7 +28,7 @@ const Collapse = ({ title, children }) => {
           transition: "max-height 0.3s ease",
         }}
       >
-        {isOpen && <div style={{ marginTop: "10px", backgroundColor: "white" , color:"black", }}>{children}</div>}
+        {isOpen && <div style={{ marginTop: "10px", backgroundColor: "#f5f5f5" , color:"black", }}>{children}</div>}
       </div>
     </div>
   );
