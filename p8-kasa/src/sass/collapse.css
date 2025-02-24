@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.collapse {
+  margin-block: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #ff6060;
+  color: white;
+  /* Styles responsives */
+}
+.collapse .collapse-header {
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between; /* Mettre le titre à gauche et la flèche à droite */
+  align-items: center; /* Centrer verticalement */
+  width: 100%; /* Utiliser 100% pour prendre toute la largeur */
+  padding: 10px; /* Espacement autour du texte */
+  box-sizing: border-box; /* Assurer que le padding ne dépasse pas de la largeur du container */
+}
+.collapse .collapse-header span {
+  font-size: 1.2rem; /* Taille de la flèche */
+  margin-left: 10px; /* Un peu d'espace entre le titre et la flèche */
+  transition: transform 0.3s ease; /* Animation lors du changement de direction */
+}
+.collapse .collapse-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.collapse .collapse-open {
+  max-height: 1000px; /* Un grand nombre pour garantir que le contenu s'affiche */
+  margin-top: 10px;
+  background-color: #f5f5f5;
+  color: black;
+  padding: 10px;
+}
+.collapse .equipmentsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 600px) {
+  .collapse .collapse-header {
+    font-size: 14px; /* Réduire la taille du texte sur les petits écrans */
+    padding: 8px; /* Réduire l'espacement pour les petits écrans */
+  }
+  .collapse .collapse-header span {
+    font-size: 1rem; /* Réduire la taille de la flèche sur les petits écrans */
+  }
+}/*# sourceMappingURL=collapse.css.map */

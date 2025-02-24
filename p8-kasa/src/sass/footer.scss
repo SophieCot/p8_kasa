@@ -7,14 +7,16 @@
     justify-content: center;
     align-items: center;
     padding: 20px 0;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+    text-align: center; // Centrer le texte et le logo
   }
   
   .footer .logo {
     width: 120px; /* Ajustez la taille du logo selon votre préférence */
     margin-bottom: 20px; /* Espace entre le logo et le texte */
+    display: block; // Bloquer l'image pour qu'elle soit un élément de type bloc
+    margin: 0 auto; // Centrer l'image horizontalement
+    width: 120px;// Vous pouvez ajuster la taille du logo
   }
   
   footer nav ul {

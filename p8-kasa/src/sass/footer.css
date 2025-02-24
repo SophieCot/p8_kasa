@@ -2,41 +2,28 @@
 .footer {
   background-color: black;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px 0;
-  position: fixed;
-  bottom: 0;
   width: 100%;
+  text-align: center;
 }
 
 .footer .logo {
+  width: 120px; /* Ajustez la taille du logo selon votre préférence */
+  margin-bottom: 20px; /* Espace entre le logo et le texte */
+  display: block;
+  margin: 0 auto;
   width: 120px;
-  /* Ajustez la taille du logo selon votre préférence */
-  margin-bottom: 20px;
-  /* Espace entre le logo et le texte */
 }
 
 footer nav ul {
   list-style: none;
   padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 footer nav ul li {
@@ -54,7 +41,5 @@ footer nav ul li a.underline {
 }
 
 footer nav ul li a:hover {
-  color: #ff5a5f;
-  /* Couleur au survol */
-}
-/*# sourceMappingURL=footer.css.map */
+  color: #ff5a5f; /* Couleur au survol */
+}/*# sourceMappingURL=footer.css.map */

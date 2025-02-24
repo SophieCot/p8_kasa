@@ -6,8 +6,9 @@ const Thumb = ({location}) => {
     return (
         location.map((location) => (
         <Link to = {`/Loc/${location.id}`} className='thumb' key={location.id}>
-            <img src = {location.cover} alt={location.title}/>
-            <h3>{location.title}</h3>
+            <div className="logementCard" style={{backgroundImage:`url(${location.cover})`}}>
+             <div className='logementCardOver'><h2>{location.title}</h2></div>
+            </div>
         </Link>
     ))
     )

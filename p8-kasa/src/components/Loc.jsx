@@ -1,104 +1,119 @@
-import React from 'react';
-import { useParams } from "react-router-dom";
-import location from "../data/kasa.json"; // Assure-toi que le chemin est correct
-import Collapse from './pages/Collapse';
-import Carrousel from './pages/Carrousel';
-
-// Fonction pour trouver une location par son ID
-const findLocID = (id) => {
-    return location.find((loc) => loc.id === id);
-};
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import location from "../data/kasa.json"; // Importation des données locales depuis le fichier JSON
+import Collapse from "./pages/Collapse"; // Composant Collapse pour afficher des sections repliables
+import Carrousel from "./pages/Carrousel"; // Composant Carrousel pour afficher les images en diaporama
 
 const Loc = () => {
-    const { id } = useParams();
-    const loc = findLocID(id);
+  // Récupération de l'ID de la location à partir de l'URL via useParams
+  const { id } = useParams();
+  
+  // hook useNavigate pour la redirection
+  const navigate = useNavigate();
 
-    // Vérification si la location existe
-    if (!loc) {
-        return (
-            <div>
-                <h2>Location non trouvée</h2>
-                <p>La location que vous cherchez n'existe pas.</p>
-            </div>
-        );
+  // État pour stocker la location récupérée et pour gérer le loading
+  const [loc, setLoc] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Effet secondaire pour récupérer la location lorsque le composant est monté
+  useEffect(() => {
+    // Recherche de la location dans les données locales (kasa.json) en fonction de l'ID
+    const locTemp = location.find((loc) => loc.id === id);
+
+    // Vérification si la location existe, sinon redirection vers une page d'erreur
+    if (!locTemp) {
+      navigate("/error-404"); // Si la location n'est pas trouvée, on redirige vers la page d'erreur
+    } else {
+      setLoc(locTemp); // Si la location est trouvée, on la stocke dans l'état
+      setLoading(false); // Mise à jour de l'état "loading" pour indiquer que les données sont prêtes
+    }
+  }, [id, navigate]); // L'effet se déclenche à chaque fois que "id" ou "navigate" change
+
+  // Fonction pour générer des étoiles en fonction de la note (rating)
+  const renderStars = (rating) => {
+    // Calcul des étoiles pleines, vides et mi-pleines
+    const fullStars = Math.floor(rating); // Étoiles pleines
+    const halfStar = rating % 1 !== 0; // Vérification de l'étoile mi-pleine
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // Étoiles vides
+
+    const stars = [];
+    
+    // Ajout des étoiles pleines à l'array
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <i className="fa-solid fa-star full-star" key={"full-" + i}></i>
+      );
     }
 
-    const pictures = loc.pictures;
-    const rating = loc.rating; // La note de la location
-    const hostName = loc.host.name; // Nom de l'hôte
-    const hostPicture = loc.host.picture; // Photo de l'hôte
-    const locationStr = loc.location; // Localisation
-    const tags = loc.tags; // Tags
-    const description = loc.description; // Description
-    const title = loc.title; //titre
+    // Ajout des étoiles vides à l'array
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(
+        <i className="fa-solid fa-star empty-star" key={"empty-" + i}></i>
+      );
+    }
+    
+    return stars; // Retour des étoiles générées
+  };
 
-    // Fonction pour afficher les étoiles
-    const renderStars = (rating) => {
-        const fullStars = Math.floor(rating);
-        const halfStar = rating % 1 !== 0;
-        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+  // Rendu du composant
+  return loading ? ( // Si les données sont en cours de chargement, on affiche "loading..."
+    <div>loading...</div>
+  ) : (
+    <div>
+      {/* Affichage du Carrousel d'images */}
+      <Carrousel images={loc.pictures} />  {/* On passe les images de la location au carrousel */}
 
-        const stars = [];
-        for (let i = 0; i < fullStars; i++) {
-            stars.push(<span key={`full-${i}`}>&#9733;</span>); // Étoile pleine
-        }
-        if (halfStar) {
-            stars.push(<span key="half">&#189;</span>); // Étoile moitié
-        }
-        for (let i = 0; i < emptyStars; i++) {
-            stars.push(<span key={`empty-${i}`}>&#9734;</span>); // Étoile vide
-        }
-        return stars;
-    };
-
-    return (
+      <div className="logementInfo">
         <div>
-              {/* Affichage du titre */}
-              <h1>{title}</h1>
+          {/* Affichage du titre de la location */}
+          <h1>{loc.title}</h1>
+          
+          {/* Affichage de la localisation */}
+          <div className="location">
+            <p>{loc.location}</p>
+          </div>
 
-            {/* Affichage du Carrousel d'images */}
-            <Carrousel images={pictures} />
-
-            {/* Affichage de la location */}
-            <div className="location" style={{ marginTop: '20px', fontSize: '16px', color: '#555' }}>
-                <p><strong>Location : </strong>{locationStr}</p>
-            </div>
-
-            {/* Affichage du nom et de la photo de l'hôte */}
-            <div className="host" style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
-                <img src={hostPicture} alt="Host" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
-                <p><strong>Hôte: </strong>{hostName}</p>
-            </div>
-
-            {/* Affichage de la note (étoiles) */}
-            <div className="rating" style={{ marginTop: '20px' }}>
-                <p>Note: {renderStars(rating)}</p>
-            </div>
-
-            {/* Affichage des tags */}
-            <div className="tags" style={{ marginTop: '20px' }}>
-                {tags.map((tag, index) => (
-                    <span key={index} style={{ marginRight: '10px', background: 'rgb(255, 96, 96)', color:'white', padding: '5px', borderRadius: '20px' }}>
-                        {tag}
-                    </span>
-                ))}
-            </div>
-
-            {/* Collapse pour la description */}
-            <Collapse title="Description">
-                <p>{description}</p>
-            </Collapse>
-
-            {/* Collapse pour les équipements */}
-            <Collapse title="Équipements">
-                <ul>
-                    {loc.equipments.map((equipment, index) => (
-                        <li key={index}>{equipment}</li>
-                    ))}
-                </ul>
-            </Collapse>
+          {/* Affichage des tags */}
+          <div className="tags">
+            {loc.tags.map((tag, index) => (  // On boucle sur les tags pour les afficher
+              <span className="tag" key={index}>
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
-    );
+
+        <div>
+          {/* Affichage du nom et de la photo de l'hôte */}
+          <div className="host">
+            <div className="hostName">
+              <span>{loc.host.name.split(" ")[0]}</span>
+              <span>{loc.host.name.split(" ")[1]}</span>
+            </div>
+            {/* Affichage de la photo de l'hôte */}
+            <img className="hostImg" src={loc.host.picture} alt="Host" />
+          </div>
+
+          {/* Affichage de la note (étoiles) */}
+          <div>
+            <p className="rating">{renderStars(loc.rating)}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="loc-collapse">
+        <div className="loc-collapse-size">
+          {/* Collapse pour la description de la location */}
+          <Collapse title="Description" text={loc.description} />
+        </div>
+        <div className="loc-collapse-size">
+          {/* Collapse pour afficher les équipements */}
+          <Collapse title="Équipements" text={loc.equipments} />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Loc;
+

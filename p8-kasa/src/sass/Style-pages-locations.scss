@@ -1,11 +1,93 @@
 .pictures {
-   
-    img{
-       width: 1000px;
-        height:300px;
-        object-fit: cover;
-        margin-inline: 50px;
-        
-      
+  img {
+    width: 1000px;
+    height: 300px;
+    object-fit: cover;
+    margin-inline: 50px;
+  }
+}
+.carousel-container {
+  position: relative;
+  height: 415px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+  .fa-solid {
+    position: absolute;
+    color: white;
+    font-size: 80px;
+  }
+  .fa-chevron-left {
+    left: 20px;
+  }
+  .fa-chevron-right {
+    right: 20px;
+  }
+  .counter {
+    position: absolute;
+    bottom: 20px;
+    color: white;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+  }
+}
+.logementInfo {
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    color: #ff6060;
+  }
+
+  .tags {
+    margin-top: 20px;
+  }
+  .tag {
+    margin-right: 10px;
+    background-color: #ff6060;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 10px;
+  }
+  .host {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+
+    .hostName {
+      display: flex;
+      flex-direction: column;
+      margin-right: 20px;
+      color: #ff6060;
     }
+    .hostImg {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+  }
+
+  .full-star {
+    color: #ff6060;
+    font-size: 24px;
+    margin-inline: 5px;
+  }
+  .empty-star {
+    color: lightgrey;
+    font-size: 24px;
+    margin-inline: 5px;
+  }
+}
+.loc-collapse {
+  display: flex;
+  justify-content: space-between;
+}
+.loc-collapse-size {
+  width: 48%;
 }
