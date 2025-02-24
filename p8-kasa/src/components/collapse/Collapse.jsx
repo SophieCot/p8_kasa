@@ -1,8 +1,5 @@
-import imgbannerabout from "../../assets/img/imgbanner-about.png"; // Import de l'image pour la bannière, non utilisé ici mais potentiellement dans un autre composant
-import Thumb from "../Thumb"; // Import d'un autre composant "Thumb", non utilisé ici mais peut être utilisé ailleurs
-import location from "../../data/kasa.json"; // Import des données de localisation, non utilisé ici mais potentiellement dans un autre composant
-
 import React, { useState } from "react"; // Import de React et du hook useState pour gérer l'état local du composant
+import "./collapse.scss";
 
 // Définition du composant Collapse qui prend en props un titre et un texte (qui peut être un tableau ou une chaîne de texte)
 const Collapse = ({ title, text }) => {

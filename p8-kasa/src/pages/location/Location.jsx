@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import location from "../data/kasa.json"; // Importation des données locales depuis le fichier JSON
-import Collapse from "./pages/Collapse"; // Composant Collapse pour afficher des sections repliables
-import Carrousel from "./pages/Carrousel"; // Composant Carrousel pour afficher les images en diaporama
+import location from "../../data/kasa.json"; // Importation des données locales depuis le fichier JSON
+import Collapse from "../../components/collapse/Collapse"; // Composant Collapse pour afficher des sections repliables
+import Carrousel from "../../components/carousel/Carrousel"; // Composant Carrousel pour afficher les images en diaporama
+import "./location.scss"
 
-const Loc = () => {
+const Location = () => {
   // Récupération de l'ID de la location à partir de l'URL via useParams
   const { id } = useParams();
   
@@ -115,5 +116,5 @@ const Loc = () => {
   );
 };
 
-export default Loc;
+export default Location;
 

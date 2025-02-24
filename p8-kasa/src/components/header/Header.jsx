@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from "../assets/img/LogoKasa.png";
+import logo from "../../assets/img/LogoKasa.png";
 import { NavLink } from "react-router-dom";
+import "./header.scss";
 const Header = () => {
     return ( 
         <div className="header">

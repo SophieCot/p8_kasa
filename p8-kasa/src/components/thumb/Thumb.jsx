@@ -1,6 +1,7 @@
 import react from 'react';
 import PropTypes from "prop-types";
 import {Link} from 'react-router-dom';
+import "./thumb.scss";
 
 const Thumb = ({location}) => {
     return (

@@ -1,11 +1,12 @@
 import React from 'react';
-import Header from './components/Header';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './components/pages/Home';
-import About from './components/pages/About';
-import Loc from './components/Loc';
-import Footer from './components/Footer';
-import ErrorPage from './components/pages/ErrorPage';
+import Location from './pages/location/Location';
+import Home from './pages/home/Home';
+import About from './pages/about/About';
+import ErrorPage from './pages/error-page/ErrorPage';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import "./app.scss";
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,7 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/loc/:id" element={<Loc />} />
+          <Route path="/loc/:id" element={<Location />} />
           <Route path="/error-404" element={<ErrorPage/>} />
           <Route path="*" element = {<Navigate replace to="/error-404"/>} /> 
         </Routes>

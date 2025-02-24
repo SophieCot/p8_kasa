@@ -1,8 +1,9 @@
 import React from 'react';
 import imgbanner from '../../assets/img/img-banner.png';
-import Thumb from '../Thumb';
 import location from "../../data/kasa.json";
-import Banner from '../Banner';
+import "./home.scss"
+import Banner from '../../components/banner/Banner';
+import Thumb from '../../components/thumb/Thumb';
 
 
 const Home = () => {

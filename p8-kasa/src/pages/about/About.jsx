@@ -1,10 +1,9 @@
 import React from "react";
 import imgbannerabout from "../../assets/img/imgbanner-about.png";
-import Thumb from "../Thumb";
-import location from "../../data/kasa.json";
-import Collapse from "./Collapse";
-import Banner from "../Banner";
-import { aboutList } from "../AboutList";
+import { aboutList } from "./AboutList";
+import "./about.scss"
+import Banner from "../../components/banner/Banner";
+import Collapse from "../../components/collapse/Collapse";
 
 const About = () => {
   return (
